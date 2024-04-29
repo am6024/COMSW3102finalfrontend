@@ -28,7 +28,7 @@ function App() {
   }, []);
 
   const fetchNotes = () => {
-    axios.get('http://localhost:8000/notes')
+    axios.get('https://comsw3102finalbackend.onrender.com/notes')
       .then(response => {
         setNotes(response.data);
       })
@@ -38,7 +38,7 @@ function App() {
   };
 
   const addNote = (newNote) => {
-    axios.post('http://localhost:8000/notes', newNote)
+    axios.post('https://comsw3102finalbackend.onrender.com/notes', newNote)
       .then(response => {
         const addedNote = response.data;
         setNotes(prevNotes => [...prevNotes, addedNote]);
@@ -52,7 +52,7 @@ function App() {
   
 
   const deleteNote = (id) => {
-    axios.delete(`http://localhost:8000/notes/${id}`)
+    axios.delete(`https://comsw3102finalbackend.onrender.com/notes/${id}`)
       .then(() => {
         setNotes(notes.filter((note) => note._id !== id));
       })
